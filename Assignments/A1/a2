@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+df = pd.read_csv("acedemic_data.csv")
+df.head()
+missing_value_formats = ["n.a.","?","NA","n/a", "na", "--"]
+df = pd.read_csv("acedemic_data.csv", na_values = missing_value_formats)
+df['SPOS'].fillna(0, inplace=True)
+df['DSBDA'].fillna(0, inplace=True)
+df['WT'].fillna(0, inplace=True)
+df['DA'].fillna(0, inplace=True)
+print(df['SPOS'].head(10))
+print(df['DSBDA'].head(10))
+print(df['WT'].head(10))
+print(df['DA'].head(10))
+import matplotlib.pyplot as plt
+plt.boxplot(x=df['SPOS'])

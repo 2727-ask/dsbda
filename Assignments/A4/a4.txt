@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+from sklearn.model_selection import train_test_split
+df=pd.read_csv("boston.csv")
+df.shape
+df.describe()
+df.head()
+df_x=df
+df_y=df["price"] 
+reg =linear_model.LinearRegression()
+x_train, x_test, y_train, y_test = train_test_split(df_x,df_y,test_size=0.2, random_state=42)
+reg.fit(x_train, y_train)
+y_pred = reg.predict(x_test)
+y_pred
+y_pred[0]
+y_test[0]
+print(reg.coef_)
+print(np.mean((y_pred-y_test)**2))

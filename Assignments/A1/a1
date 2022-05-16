@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+df = pd.read_csv("diabetes.csv")
+df.info()
+df.describe()
+df.head()
+df.groupby(by = "Age").sum()
+df.isna().sum()
+type("Age")
+type("BMI")
+df.Age=df.Age.astype(float)
+df.describe()
+df.sort_values('Age')
+df.drop(columns=['Age'])
+df.sort_values('Age',ascending=False)
+df.rename(columns={'Age':'Year Old'})
+pd.get_dummies(df['Glucose'])
+df.iloc[2:50]

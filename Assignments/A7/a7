@@ -1,0 +1,33 @@
+import nltk
+import string
+print(string.punctuation)
+text = "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife."
+text = text.lower()
+print(text)
+text_p = "".join([char for char in text if char not in string.punctuation])
+print(text_p)
+nltk.download('punkt')
+from nltk import word_tokenize
+words = word_tokenize(text_p)
+print(words)
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+stop_words = stopwords.words('english')
+print(stop_words)
+filtered_words = [word for word in words if word not in stop_words]
+print(filtered_words)
+from nltk.stem.porter import PorterStemmer
+porter = PorterStemmer()
+stemmed = [porter.stem(word) for word in filtered_words]
+print(stemmed)
+import nltk
+nltk.download('averaged_perceptron_tagger')
+from nltk import pos_tag
+pos = pos_tag(filtered_words)
+print(pos)
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+import pandas as pd
+import numpy as np
+import statistics as st
+df = pd.read_csv("loan.csv")
+print(df.shape)
+print(df.info())
+df.mean()
+df.max()
+df.min()
+df.median()
+df.std()
+df.loc[:,'LoanAmount'].mean()
+df.mean(axis = 1)[0:5]
+df.var()
+df[["Gender","LoanAmount"]].groupby("Gender").mean()
+df[["Gender","LoanAmount"]].groupby("Gender").median()
+df[["Self_Employed","LoanAmount"]].groupby("Self_Employed").mean()
+
+
+
+
+
+
